@@ -22,6 +22,7 @@ import TenantFamily from './models/tenantFamilyModel.js';
 
 import Penalty from "./models/penaltyModel.js";
 import OwnerPenalty from "./models/ownerPenaltyModel.js";
+import Complaint from './models/complaintModel.js';
 
 
 
@@ -51,7 +52,8 @@ async function startServer(){
         OwnerFamily, 
         TenantFamily,
         Penalty, 
-        OwnerPenalty
+        OwnerPenalty,
+        Complaint,
       ]
     })
   
