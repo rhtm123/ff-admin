@@ -6,11 +6,12 @@ import bcrypt from "bcrypt";
 
 
 const memberSchema = new mongoose.Schema({
+  name: { type: String, required: true, },
+
   societyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Society', required: true },
 
   username: { type: String, unique: true, maxlength: 255 },
   email: { type: String, unique: true, lowercase: true, trim: true, match: /\S+@\S+\.\S+/ },
-  name: { type: String, required: true, },
   password: { type: String },
   isOwner: { type: Boolean, default: false },
   isTenant: { type: Boolean, default: false },
@@ -19,7 +20,7 @@ const memberSchema = new mongoose.Schema({
   mobile: { type: String, trim: true }, // Normalize mobile number if needed
   dateOfBirth: { type: Date },
   birthYear: { type: Number }, // Add the birthYear field
-
+  isCommitteeMember: { type: Boolean, default: false},
   gender: { type: String },  // <-- Added 'gender' field
   role: { type: String, required: true, default: "member" },
   profilePic: { type: String },  // <-- Added 'profilePic' field
